@@ -6,7 +6,7 @@ import numpy as np
 from flask import Blueprint, render_template, request
 from skimage.feature import graycomatrix, graycoprops
 
-from utils import allowed_file
+from module import allowed_file
 
 bp = Blueprint("orange_diseases", __name__)
 
