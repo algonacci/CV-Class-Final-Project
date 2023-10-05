@@ -2,7 +2,6 @@ import base64
 from io import BytesIO
 from typing import Tuple
 
-
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,7 +9,6 @@ from flask import Blueprint, render_template, request
 from PIL import Image
 from sklearn.cluster import KMeans
 
-from module import allowed_file
 
 matplotlib.use("agg")
 

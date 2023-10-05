@@ -9,7 +9,11 @@ from module import allowed_file
 
 bp = Blueprint("custom_object_detection", __name__)
 
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+# model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+model = torch.hub.load("ultralytics/yolov5",
+                       "custom",
+                       path="best.pt",
+                       force_reload=True)
 
 
 @bp.route("/custom_object_detection", methods=["GET", "POST"])
@@ -39,7 +43,9 @@ def custom_object_detection():
             # Encode the detected image in base64
             _, buffer = cv2.imencode('.jpg', image)
             image_base64 = base64.b64encode(buffer).decode()
-            return render_template("pages/custom_object_detection.html", result=image_base64)
+            return render_template("pages/custom_object_detection.html",
+                                   result=image_base64,
+                                   class_labels=label)
 
     # Handle GET request
     return render_template("pages/custom_object_detection.html")

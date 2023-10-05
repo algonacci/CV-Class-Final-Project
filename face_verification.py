@@ -3,7 +3,7 @@ import os
 import cv2
 import numpy as np
 from deepface import DeepFace
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, jsonify, request
 
 bp = Blueprint("face_verification", __name__)
 
