@@ -12,7 +12,7 @@ bp = Blueprint("custom_object_detection", __name__)
 # model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
 model = torch.hub.load("ultralytics/yolov5",
                        "custom",
-                       path="best.pt",
+                       path="./models/best.pt",
                        force_reload=True)
 
 
